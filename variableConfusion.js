@@ -21,3 +21,12 @@ console.log(typeof ValueInNumer2)  // number
 // false => 0
 // null => 0
 // undefined => NaN
+
+let loggedIn = "1"  // what does it give when converted to boolean
+
+let loggedIn2 = "0"  // what does it give when converted to boolean
+
+console.log(Boolean(loggedIn))  // true
+console.log(Boolean(loggedIn2))  // true
+
+// In boolean conversion, all the values are considered true except "", 0, null, undefined, NaN
