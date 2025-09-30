@@ -33,3 +33,15 @@ console.log(+true) // 1
 console.log(+false) // 0
 
 // But remember that these type of conversions create confusion and bugs in the code so avoid them as much as possible and they are not considered good practice also not appreciated by the community
+
+
+//prefix and postfix operators
+let num1 = 5
+let num2 = num1++  // postfix operator first assigns the value then increments it
+console.log(num1)  // 6
+console.log(num2)  // 5
+
+let num3 = 5
+let num4 = ++num3  // prefix operator first increments the value then assigns it
+console.log(num3)  // 6
+console.log(num4)  // 6
