@@ -8,3 +8,5 @@ console.log(null == 0) // false // false because null is converted to 0 only in 
 console.log(null > 0) // false // false because null is converted to 0 only in boolean conversion not in number conversion so null remains null and 0 remains 0 and then compared
 console.log(null >= 0) // true // because null is converted to 0 and then compared so 0 >= 0 is true
 console.log(NaN == NaN) // false // false because NaN is not equal to anything including itself
+
+// always remember to do comparisons between same datatypes to avoid confusions
