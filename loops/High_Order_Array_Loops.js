@@ -18,7 +18,7 @@ let nameinstring = "Hussain Khan";
 // MAPS // Read documentation
 let map = new Map;
 map.set("PK", "Pakistan");
-map.set("FRs", "France");
+map.set("FR", "France");
 // console.log(map)
 // for (const [key, value] of map) {
 //     console.log(key , " " , value)
