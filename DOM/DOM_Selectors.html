@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM Learning</title>
+    <style>
+        .body {
+            background-color: black;
+            color: white;
+        }
+    </style>
+</head>
+<body class="body">
+    <div class="bg-black">
+    <h1 class="heading" id="h1-heading">DOM Learning</h1>    
+    <h2 class="heading2" id="h2-heading">DOM Learning <span style="display: none;">By Muhammad Hussain</span></h2>    
+    <h2 class="heading2" id="h2-heading">Another h2<span style="display: none;">By Muhammad Hussain</span></h2>    
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+    </div>
+    <input type="number" name="password" id="password-field" value="1234">
+    <ul>
+        <li>one</li>
+        <li>two</li>
+        <li>three</li>
+    </ul>
+</body>
+
+<script>
+    document.getElementsByClassName("heading")[0].innerHTML = "DOM Manipulation"; // selection by class name and changing inner HTML
+    document.getElementById("h1-heading").style.color = "yellow"; // selection by ID and changing color of text
+    document.getElementById("h1-heading").setAttribute("class", "heading first-heading") // adding another class to the existing class
+    document.getElementById("h1-heading").style.backgroundColor = "red"; // changing background color of h1 using its ID
+
+    //Content addition 
+    document.getElementById("h1-heading").textContent += " - Updated"; // adding text content to existing content
+    document.getElementById("h1-heading").innerText += " - Updated"; // both doing same thing here so what is the difference? ANS: In innerText, hidden elements are not considered, whereas in textContent, hidden elements are considered.
+    // For example:
+    console.log(document.getElementById("h2-heading").innerText); // Output: DOM Learning ('By Muhammad Hussain' is not shown as it's display is none)
+    console.log(document.getElementById("h2-heading").textContent); // Output: DOM Learning By Muhammad Hussain
+    // Now innerHTML
+    console.log(document.getElementById("h2-heading").innerHTML); // Output: DOM Learning <span style="display: none;">By Muhammad Hussain</span> (Shows the HTML structure inside the element)
+
+    // Another Query Selector
+    console.log(document.querySelector("h1")) // selects the first h1 element
+    console.log(document.querySelector("#h1-heading"))// select element by ID using query selector
+    console.log(document.querySelector(".heading"))// select element by class using query selector
+    console.log(document.querySelectorAll("h2"))// select all h2 elements using query selector
+    console.log(document.querySelectorAll(".heading2"))// select all elements with class heading2 using query selector
+    // selecting input field and changing its value
+    document.querySelector("input[Type = number]").value = "5678";
+
+    //NODE LIST 
+    let listItems = document.querySelectorAll("li"); // return a node list of all li elements
+    // Now node list is similar to array but not exactly an array. But as it's like array, we can use forEach loop on it.
+    // let i = 0;
+    listItems.forEach(function(item){
+        if (item.textContent === "two"){
+            item.style.color = "green";
+        }
+        else if (item.textContent === "three"){
+            item.style.color = "yellow";
+        }
+        item.style.backgroundColor = "red";
+        item.style.display = "inline-block";
+    });
+    
+
+</script>
+</html> 
