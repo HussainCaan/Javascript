@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM by MH</title>
+    <style>
+        body {
+            background-color: #222;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <div class="day">Monday</div>
+        <div class="day">Tuesday</div>
+        <div class="day">Wednesday</div>
+        <div class="day">Thursday</div>
+    </div>
+</body>
+<script>
+    let parent = document.querySelector(".parent")
+    // let parent1 = document.getElementsByClassName("parent")[0]
+    // console.log(parent);
+    // console.log(parent1);
+    // console.log(parent.children); // HTML Collection of child elements
+    // Each elements has child and we can access then using index
+
+    for(let i = 0; i < parent.children.length; i++){
+        parent.children[i].style.color = "yellow";
+        parent.children[i].style.fontWeight = "bold";
+    }
+
+    console.log(parent.firstElementChild.innerHTML); // Accessing first child element
+    console.log(parent.lastElementChild.innerHTML); // Accessing last child element
+
+    let dayone = document.querySelector(".day");
+    // console.log(dayone.innerText);
+    // console.log(dayone.nextElementSibling.innerText);
+    // console.log(dayone.parentElement.innerText);
+
+    // console.log(parent.childNodes); // Node list of all child nodes including text nodes (like spaces and line breaks)
+
+    // Creating new Element ----------====================---------------------------------==============================------------------------------------===========
+
+    let newDiv = document.createElement("div"); // Creating a new div element
+    console.log(newDiv);
+    newDiv.className = "day";
+    // newDiv.id = math.random() * 10;
+    newDiv.textContent = "Friday"; // Adding text content to the new div
+    console.log(newDiv);
+
+    //child attachment
+    parent.appendChild(newDiv); // Appending the new div as a child to the parent div
+    parent.children[4].style.color = "Yellow";
+    parent.children[4].style.fontWeight = "bold";
+    </script>
+</html>
