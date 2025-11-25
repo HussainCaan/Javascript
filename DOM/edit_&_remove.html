@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit and remove</title>
+    <style>
+        body {
+            background-color: #222;
+            color: white;
+            font-family: Arial, sans-serif;
+        }
+        .language li {
+            font-size: 20px;
+            margin: 10px 0;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <ul class="language">
+        <li>Python</li>
+        <li>Javascrip</li>
+        <li>C++</li>
+        <li>Java</li>
+    </ul>
+</body>
+<script>
+    function addlanguage(langName){
+        let ul = document.querySelector(".language");
+        let newLang = document.createElement("li");
+        newLang.innerHTML = langName;
+        ul.appendChild(newLang);
+    }
+    addlanguage("GoLang");
+    addlanguage("Ruby");
+
+    function addoptilanguage(newLang){ // Adding element using createTextNode and appendChild because it's more efficient than innerHTML which is used in the previous function
+        let li = document.createElement("li");
+        li.appendChild(document.createTextNode(newLang));
+        document.querySelector(".language").appendChild(li);
+    }
+    addoptilanguage("Swift");
+
+
+    // Edit
+    let secondlang = document.querySelector("li:nth-child(2)");
+    let newli = document.createElement("li");
+    newli.textContent = "JavaScript"; // Correcting the spelling of JavaScript
+    secondlang.replaceWith(newli); // Replacing second li element with new li element
+
+    let editing = document.querySelector("li:nth-child(3)") 
+    let newli2 = document.createElement("li");
+    newli2.textContent = "C#"; // Changing C++ to C#
+    editing.replaceWith(newli2);
+
+    document.querySelector("li:nth-child(5)").textContent = "Golang"; // Correcting the spelling of GoLang
+
+    // Remove
+    let lastlang = document.querySelector("li:last-child");
+    lastlang.remove(); // Removing the last li element (Swift)
+</script>
+</html>
