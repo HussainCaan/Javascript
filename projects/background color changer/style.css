@@ -1,0 +1,50 @@
+body{
+    background-color: white;
+    color: black;
+}
+.mainbody{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: lightgre; */
+
+}
+.Buttons {
+    display: flex;
+    gap: 15px;
+}
+.btn{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.Light-blue{
+    background-color: lightblue;
+    color: black;
+ 
+}
+.Green{
+    background-color: lightgreen;
+    color: white;
+   
+}
+.Black{
+    background-color: black;
+    color: white;
+   
+}
+.Yellow{
+    background-color: yellow;
+    color: black;
+  
+}
+.para{
+    font-size: 20px;
+    margin-top: 20px;
+    font-family: 'Poppins';
+}
