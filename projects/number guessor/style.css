@@ -1,0 +1,29 @@
+body{
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+}
+.mainbody{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+#number-input{
+    padding: 10px;
+    font-size: 16px;
+    width: 200px;
+    margin-bottom: 10px;
+}
+.btn{
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
