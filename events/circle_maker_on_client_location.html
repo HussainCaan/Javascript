@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>making circle</title>
+</head>
+<body>
+    <div class="mainbody">
+        <h1 class="heading">Making Circle inside Div on click location</h1>
+        <div class="circle-container" style="position: relative; height: 80vh; width: 80vw; border: 2px solid black;">
+    </div>
+</body>
+<script>
+    let div = document.querySelector(".circle-container");
+
+    div.addEventListener("click", (e)=>{
+        let X = e.clientX;
+        let Y = e.clientY;
+        // let localX = X - e.target.offsetLeft;
+        // let localY = Y - e.target.offsetTop;
+        let rect = div.getBoundingClientRect()
+        let top  = rect.top;
+        let left = rect.left;
+
+        let localX = X - left;
+        let localY = Y - top;
+
+        let circle = document.createElement("div");
+        circle.className = "Circle";
+        circle.style.width = "10px";
+        circle.style.height = "10px";
+        circle.style.borderRadius = "50%";
+        circle.style.backgroundColor = "red";
+
+        //    circle.style. = localX;
+        //    circle.style.marginLeft = localY;
+        //     div.appendChild(circle);
+        circle.style.position = "absolute";
+        circle.style.left = (localX - 5) + "px"; // Adjusting for circle radius
+        circle.style.top = (localY - 5) + "px"; // Adjusting for circle radius
+        div.appendChild(circle);
+    })
+</script>
+</html>
