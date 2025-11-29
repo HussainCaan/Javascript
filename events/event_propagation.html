@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Background Color changer</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        body{
+    background-color: white;
+    color: black;
+}
+.mainbody{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* background-color: lightgre; */
+
+}
+.Buttons {
+    display: flex;
+    gap: 15px;
+}
+.btn{
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+.Light-blue{
+    background-color: lightblue;
+    color: black;
+ 
+}
+.Green{
+    background-color: lightgreen;
+    color: white;
+   
+}
+.Black{
+    background-color: black;
+    color: white;
+   
+}
+.Yellow{
+    background-color: yellow;
+    color: black;
+  
+}
+.para{
+    font-size: 20px;
+    margin-top: 20px;
+    font-family: 'Poppins';
+}
+    </style>
+</head>
+
+<body>
+    <div class="mainbody">
+        <h1 class="Heading-1">Change background color with these Buttons</h1>
+        <div class="Buttons">
+            <button class="btn Light-blue">Light Blue</button>
+            <button class="btn Green">Green</button>
+            <button class="btn Black">Black</button>
+            <button class="btn Yellow">Yellow</button>
+        </div>
+        <p class="para">Use these buttons to change the background color</p>
+    </div>
+    <script src="script.js"></script>
+</body>
+<script>
+// Evenet propagation has two scenarios
+// 1. Event Bubbling: When an event is triggered on a child element, it first runs the event handler on that element, then on its parent, then all the way up to the document root. This is the default behavior.
+// 2. Event Capturing: The event is first captured by the outermost element and propagated to the inner elements. This is less commonly used but can be enabled by setting the third parameter of addEventListener to true.
+
+let buttons = document.querySelectorAll(".btn")
+let buttons_array = Array.from(buttons)
+let parent = document.querySelector(".mainbody")
+
+document.querySelector(".mainbody").addEventListener("click", ()=>{
+    document.querySelector(".para").textContent = "You clicked on the main body"
+},false) // On false it is event bubbling and on true it is event capturing.
+document.querySelector(".Light-blue").addEventListener("click", ()=>{
+    let newpara = document.createElement("p");
+    newpara.textContent = "You clicked on Light Blue button and third parameter is true";
+    parent.appendChild(newpara);
+    newpara.className = "para";
+},true) // Here first the main body event will be triggered then the button event because of true parameter.
+document.querySelector(".Green").addEventListener("click", ()=>{
+    let newpara = document.createElement("p");
+    newpara.textContent = "You clicked on Green button and third parameter is false";
+    parent.appendChild(newpara);
+    newpara.className = "para";
+},false) // Here first the button event will be triggered then the main body event because of the false parameter.
+
+</script>
+</html>
