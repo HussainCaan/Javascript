@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timeouts</title>
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="heading">Learning Timeouts</h1>
+        <button id="Start">StartTimeout</button>
+        <button id="Stop">StopTimeout</button>
+    </div>
+</body>
+<script>
+    // SetTimeout and Cleartimeout Example:
+
+    let button = document.getElementById("Start");
+
+    button.addEventListener("click", () => {
+        button.textContent = "Wait for 5 seconds"; // Immediate feedback to user
+        let timeout = setTimeout(() => {
+            console.log("Button Clicked after Timeout"); // Action after timeout
+            button.textContent = "StartTimeout"; // Reset button text after timeout
+        }, 5000); // 5000 milliseconds = 5 seconds
+
+        let stopButton = document.getElementById("Stop");
+        stopButton.addEventListener("click", () => {
+            clearTimeout(timeout); // Cancels the timeout if it's still pending
+            button.textContent = "StartTimeout"; // Reset button text if timeout is cleared
+        })
+    })
+    // Note: SetTimeout is asynchronous and does not block the main thread. Also SetTimeout will do it's work only once while SetInterval will keep doing it's work at the given interval time. Clear Timeout is used to cancel a timeout before it executes, while ClearInterval is used to stop a repeating action set by SetInterval.
+
+
+
+
+</script>
+
+</html>
