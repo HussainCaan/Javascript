@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cards using API's and Javascript</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Value	State	Description
+0	UNSENT	Client has been created. open() not called yet.
+1	OPENED	open() has been called.
+2	HEADERS_RECEIVED	send() has been called, and headers and status are available.
+3	LOADING	Downloading; responseText holds partial data.
+4	DONE	The operation is complete. -->
+
+<div id="main">
+        <h1 class="heading">Getting Data Through API's</h1>
+        <div class="cards">
+            <div class="eachcard">
+                <h3>Card 1</h3>
+                <p>Description here </p>
+            </div>
+            <div class="eachcard">
+                <h3>Card 2</h3>
+                <p>Description here</p>
+            </div>
+            <div class="eachcard">
+                <h3>Card 3</h3>
+                <p>Description here</p>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="script.js"></script>
+</html>
