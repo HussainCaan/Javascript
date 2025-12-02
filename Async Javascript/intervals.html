@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Intervals</title>
+</head>
+
+<body>
+    <div class="main">
+        <h1 class="heading">Learning Timeouts</h1>
+        <button id="Start">StartTimeout</button>
+        <button id="Stop">StopTimeout</button>
+        <p class="para"></p>
+    </div>
+</body>
+<script>
+
+    // SetInterval and ClearInterval Exampple:
+    let startButton = document.getElementById("Start");
+    let stopButton = document.getElementById("Stop");
+    let para = document.getElementsByClassName("para")[0]
+
+    startButton.addEventListener("click", () => {
+        startButton.textContent = "Interval Started";
+        let i = 0;
+        const intervalStart = setInterval(() => {
+            i += 1;
+            para.textContent = `Interval is running from ${i} seconds`;
+            // console.log("test")
+        }, 1000);
+
+        stopButton.addEventListener("click", () => {
+            clearInterval(intervalStart);
+            para.textContent = `Set Invertal is stopeed after ${i} seconds`;
+            startButton.textContent = "StartTimeout"
+        })
+    })
+
+
+
+</script>
+
+</html>
