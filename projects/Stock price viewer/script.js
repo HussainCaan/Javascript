@@ -1,4 +1,4 @@
-let BASE_URL = "https://dps.psx.com.pk/historical/" // BaseURL for fetching data
+let BASE_URL = "https://dps.psx.com.pk/company/" // BaseURL for fetching data
 let Endpoint; // API endpoint (i-e symbol of stock)
 
 
@@ -59,7 +59,7 @@ async function fetchStock() {
 
     try {
         const response = await fetch(
-            `http://127.0.0.1:8000/stock/${Endpoint}`
+            `http://127.0.0.1:8000/stock/${Endpoint}` // Sending request to backend
         );
 
         if (!response.ok) {
@@ -75,8 +75,10 @@ async function fetchStock() {
         document.querySelector("#stock-change-percent").textContent = data.percentage;
         document.querySelector("#stock-volume").textContent = data.volume;
 
-
     } catch (err) {
         console.error(err);
     }
 }
+// End of latest data/ today data fetching ---------------------------------------------------
+
+
