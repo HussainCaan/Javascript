@@ -44,7 +44,8 @@ const Symbol_Search_In_CSV = (Symbol) => {
         if (element === Symbol) {
             console.log("Symbol found\n");
             symbolCheck = true;
-            fetchStock()
+            fetchStock();
+            fetchAnalysis(Symbol);
             return;
         }
         else {
@@ -67,7 +68,7 @@ async function fetchStock() {
         }
 
         const data = await response.json();
-        console.log(data);
+        // console.log(data);
         document.querySelector("#stock-symbol").textContent = CleanedSearchSymbol;
         document.querySelector("#stock-name").textContent = `Searched Stock`;
         document.querySelector("#stock-price").textContent = data.price;
@@ -80,5 +81,33 @@ async function fetchStock() {
     }
 }
 // End of latest data/ today data fetching ---------------------------------------------------
-
-
+async function fetchAnalysis(symbol){
+    // Show loader, hide content
+    document.querySelector(".analysis-loader").style.display = 'block';
+    document.querySelector(".analysis-content").style.display = 'none';
+    
+    try{
+        const response = await fetch(
+            `http://127.0.0.1:8000/langchain/stock/${symbol}`
+        );
+        if (!response.ok){
+            throw new Error("Failed to fetch data");
+        }
+        const data = await response.json();
+        console.log(data)
+        const AnalysisText = data.analysis;
+        
+        // Hide loader, show content with analysis
+        document.querySelector(".analysis-loader").style.display = 'none';
+        document.querySelector(".analysis-content").style.display = 'block';
+        document.querySelector("#analysis-text").textContent = AnalysisText;
+        
+    }
+    catch(err){
+        console.error(err);
+        // Hide loader and show error message
+        document.querySelector(".analysis-loader").style.display = 'none';
+        document.querySelector(".analysis-content").style.display = 'block';
+        document.querySelector("#analysis-text").textContent = "Failed to load analysis. Please try again.";
+    }
+}
