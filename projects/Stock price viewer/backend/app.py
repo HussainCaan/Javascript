@@ -4,6 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from today import router as today_router
 from historical import router as historical_router
+from langchain import router as langchain_router
 
 app = FastAPI(title="PSX Stock API")
 
@@ -18,6 +19,7 @@ app.add_middleware(
 # Register routes
 app.include_router(today_router)
 app.include_router(historical_router)
+app.include_router(langchain_router)
 
 @app.get("/")
 def root():
