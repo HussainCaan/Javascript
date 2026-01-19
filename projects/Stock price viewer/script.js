@@ -55,7 +55,7 @@ const Symbol_Search_In_CSV = (Symbol) => {
 }
 // ------------------------------ End of Search Section ----------------------------------------------------
 
-// PSX Stocks Data Fetching Using API
+// PSX Stocks Data Fetching Using API ----------------------------------------------------------------
 async function fetchStock() {
 
     try {
@@ -109,3 +109,4 @@ async function fetchAnalysis(symbol){
         document.querySelector("#analysis-text").textContent = "Failed to load analysis. Please try again.";
     }
 }
+// End of Analysis function -----------------------------------------------------------------------------------------------------
