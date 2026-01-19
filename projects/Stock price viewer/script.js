@@ -97,7 +97,6 @@ async function fetchAnalysis(symbol){
         console.log(data)
         const AnalysisText = data.analysis;
         
-        // Hide loader, show content with analysis
         document.querySelector(".analysis-loader").style.display = 'none';
         document.querySelector(".analysis-content").style.display = 'block';
         document.querySelector("#analysis-text").textContent = AnalysisText;
@@ -105,7 +104,6 @@ async function fetchAnalysis(symbol){
     }
     catch(err){
         console.error(err);
-        // Hide loader and show error message
         document.querySelector(".analysis-loader").style.display = 'none';
         document.querySelector(".analysis-content").style.display = 'block';
         document.querySelector("#analysis-text").textContent = "Failed to load analysis. Please try again.";
